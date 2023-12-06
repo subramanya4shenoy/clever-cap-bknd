@@ -8,10 +8,7 @@ const app = express();
 
 // Middleware setup
 var corsOptions = {
-  origin:
-    process.env.ENVIRONMENT == "PROD"
-      ? "https://65701a374c4ba935ad77bc1a--phenomenal-granita-024ec5.netlify.app/"
-      : process.env.WO_UI_HOST,
+  origin: "https://65701a374c4ba935ad77bc1a--phenomenal-granita-024ec5.netlify.app/"
   credentials: true,
 };
 
