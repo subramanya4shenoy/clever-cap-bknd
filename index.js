@@ -8,7 +8,10 @@ const app = express();
 
 // Middleware setup
 var corsOptions = {
-  origin: "https://65701a374c4ba935ad77bc1a--phenomenal-granita-024ec5.netlify.app/"
+  origin: [
+    "https://65701a374c4ba935ad77bc1a--phenomenal-granita-024ec5.netlify.app/",
+    "http://localhost:3000", // Add other origins as needed
+  ],
 };
 
 app.use(cors(corsOptions));
@@ -21,14 +24,12 @@ app.post("/generate", async (req, res) => {
 
   let prompt;
 
-  if (req.body.type == 'caption'){
-    prompt = `Generate a ${req.body.tone} caption (up to 250 characters) without hashtags and also generate relevant hashtags separately for an Instagram post featuring ${req.body.keywords}. Format the result in JSON strictly as follows: {"data": "", "hashtag": ""}`
-  } 
-  else if(req.body.type == 'comment'){
-    prompt = `Generate a ${req.body.tone} first comment without hashtags for an Instagram post featuring ${req.body.keywords}. Format the result in JSON strictly as follows: {"data": ""}`
-  } 
-  else if(req.body.type == 'title'){
-    prompt = `Generate a title for a Pinterest post featuring ${req.body.keywords}. Format the result in JSON strictly as follows: {"data": ""}`
+  if (req.body.type == "caption") {
+    prompt = `Generate a ${req.body.tone} caption (up to 250 characters) without hashtags and also generate relevant hashtags separately for an Instagram post featuring ${req.body.keywords}. Format the result in JSON strictly as follows: {"data": "", "hashtag": ""}`;
+  } else if (req.body.type == "comment") {
+    prompt = `Generate a ${req.body.tone} first comment without hashtags for an Instagram post featuring ${req.body.keywords}. Format the result in JSON strictly as follows: {"data": ""}`;
+  } else if (req.body.type == "title") {
+    prompt = `Generate a title for a Pinterest post featuring ${req.body.keywords}. Format the result in JSON strictly as follows: {"data": ""}`;
   }
 
   try {
