@@ -9,7 +9,6 @@ const app = express();
 // Middleware setup
 var corsOptions = {
   origin: "https://65701a374c4ba935ad77bc1a--phenomenal-granita-024ec5.netlify.app/"
-  credentials: true,
 };
 
 app.use(cors(corsOptions));
