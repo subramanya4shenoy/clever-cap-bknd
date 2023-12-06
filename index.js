@@ -9,7 +9,7 @@ const app = express();
 // Middleware setup
 var corsOptions = {
   origin: [
-    "https://65701a374c4ba935ad77bc1a--phenomenal-granita-024ec5.netlify.app/",
+    "https://65701a374c4ba935ad77bc1a--phenomenal-granita-024ec5.netlify.app",
     "http://localhost:3000", // Add other origins as needed
   ],
 };
