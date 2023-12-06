@@ -7,7 +7,15 @@ require("dotenv").config();
 const app = express();
 
 // Middleware setup
-app.use(cors());
+var corsOptions = {
+  origin:
+    process.env.ENVIRONMENT == "PROD"
+      ? "https://65701a374c4ba935ad77bc1a--phenomenal-granita-024ec5.netlify.app/"
+      : process.env.WO_UI_HOST,
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 app.post("/generate", async (req, res) => {
