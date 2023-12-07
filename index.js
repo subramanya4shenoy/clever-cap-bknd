@@ -7,15 +7,17 @@ require("dotenv").config();
 const app = express();
 
 // Middleware setup
-var corsOptions = {
-  origin: [
-    "https://65701a374c4ba935ad77bc1a--phenomenal-granita-024ec5.netlify.app",
-    "http://localhost:3000", // Add other origins as needed
-  ],
-};
-
-app.use(cors(corsOptions));
 app.use(bodyParser.json());
+
+// Enable CORS with specific origins
+app.use(
+  cors({
+    origin: [
+      "https://6570227dca67f73f3aa9fc07--phenomenal-granita-024ec5.netlify.app",
+      "http://localhost:3000", // Add other origins as needed
+    ],
+  })
+);
 
 app.post("/generate", async (req, res) => {
   console.log("Required type:", req.body.type);
