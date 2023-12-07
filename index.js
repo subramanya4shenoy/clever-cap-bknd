@@ -132,7 +132,8 @@ try {
 } catch (error) {
   console.error("Error:", error.response ? error.response.data : error.message);
   res.status(500).send("An error occurred while generating");
-}
+} 
+});
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
