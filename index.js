@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: [
-      "https://phenomenal-granita-024ec5.netlify.app/",
+      "https://phenomenal-granita-024ec5.netlify.app",
       "http://localhost:3000", // Add other origins as needed
     ],
   })
